@@ -1,0 +1,86 @@
+Model: "model_biGRU"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ encoder_input_ids (InputLayer)  [(None, 400)]       0           []                               
+                                                                                                  
+ encoder_attention_mask (InputL  [(None, 400)]       0           []                               
+ ayer)                                                                                            
+                                                                                                  
+ encoder_token_type_ids (InputL  [(None, 400)]       0           []                               
+ ayer)                                                                                            
+                                                                                                  
+ tf_electra_model (TFElectraMod  TFBaseModelOutputWi  108891648  ['encoder_input_ids[0][0]',      
+ el)                            thPastAndCrossAtten               'encoder_attention_mask[0][0]', 
+                                tions(last_hidden_s               'encoder_token_type_ids[0][0]'] 
+                                tate=(None, 400, 76                                               
+                                8),                                                               
+                                 past_key_values=No                                               
+                                ne, hidden_states=N                                               
+                                one, attentions=Non                                               
+                                e, cross_attentions                                               
+                                =None)                                                            
+                                                                                                  
+ dropout_37 (Dropout)           (None, 400, 768)     0           ['tf_electra_model[0][0]']       
+                                                                                                  
+ dense (Dense)                  (None, 400, 1024)    787456      ['dropout_37[0][0]']             
+                                                                                                  
+ dropout_38 (Dropout)           (None, 400, 1024)    0           ['dense[0][0]']                  
+                                                                                                  
+ dense_1 (Dense)                (None, 400, 1024)    1049600     ['dropout_38[0][0]']             
+                                                                                                  
+ dense_2 (Dense)                (None, 400, 3)       3075        ['dense_1[0][0]']                
+                                                                                                  
+ length (InputLayer)            [(None, 1)]          0           []                               
+                                                                                                  
+ crf_layer (CRFLayer)           (None, 400, 3)       9           ['dense_2[0][0]',                
+                                                                  'length[0][0]']                 
+                                                                                                  
+==================================================================================================
+Total params: 110,731,788
+Trainable params: 110,731,788
+Non-trainable params: 0
+
+
+Model: "model_biLSTM"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ encoder_input_ids (InputLayer)  [(None, 400)]       0           []                               
+                                                                                                  
+ encoder_attention_mask (InputL  [(None, 400)]       0           []                               
+ ayer)                                                                                            
+                                                                                                  
+ encoder_token_type_ids (InputL  [(None, 400)]       0           []                               
+ ayer)                                                                                            
+                                                                                                  
+ tf_electra_model (TFElectraMod  TFBaseModelOutputWi  108891648  ['encoder_input_ids[0][0]',      
+ el)                            thPastAndCrossAtten               'encoder_attention_mask[0][0]', 
+                                tions(last_hidden_s               'encoder_token_type_ids[0][0]'] 
+                                tate=(None, 400, 76                                               
+                                8),                                                               
+                                 past_key_values=No                                               
+                                ne, hidden_states=N                                               
+                                one, attentions=Non                                               
+                                e, cross_attentions                                               
+                                =None)                                                            
+                                                                                                  
+ dropout_37 (Dropout)           (None, 400, 768)     0           ['tf_electra_model[0][0]']       
+                                                                                                  
+ dense (Dense)                  (None, 400, 1024)    787456      ['dropout_37[0][0]']             
+                                                                                                  
+ dropout_38 (Dropout)           (None, 400, 1024)    0           ['dense[0][0]']                  
+                                                                                                  
+ dense_1 (Dense)                (None, 400, 1024)    1049600     ['dropout_38[0][0]']             
+                                                                                                  
+ dense_2 (Dense)                (None, 400, 3)       3075        ['dense_1[0][0]']                
+                                                                                                  
+ length (InputLayer)            [(None, 1)]          0           []                               
+                                                                                                  
+ crf_layer (CRFLayer)           (None, 400, 3)       9           ['dense_2[0][0]',                
+                                                                  'length[0][0]']                 
+                                                                                                  
+==================================================================================================
+Total params: 110,731,788
+Trainable params: 110,731,788
+Non-trainable params: 0
